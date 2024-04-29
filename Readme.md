@@ -1,18 +1,17 @@
 # User Management Web Application
 
-HHello, I invite you to familiarize yourself with the service that helps to administer information about users. This project is a web application designed to provide a convenient and accessible way to store and update user information. Feel free to use this service
-
+Welcome! We invite you to familiarize yourself with our service that facilitates the administration of user information. This project is a web application designed to provide a convenient and accessible way to store and update user data. Feel free to utilize this service.
 ## Overview
 
 ### UserController
 
-Provides endpoints for maneging  users. It handles HTTP requests and provides documentation through Swagger, simplifying user interaction with the system.
-- Create User Endpoint: Allows creating a new user. It verifies that the user has reached the age of majority before creation.
-- **Update Any User Fields Endpoint: Enables updating specific fields of an existing user without creating a new user.
--  Update All User Fields Endpoint: Updates all information about a user, including creating a new record if the user does not exist.
--  Find Users by Birth Date Range Endpoint: Retrieves a list of users whose birth dates fall within a specified range provided in the YYYY-MM-DD format.
--  Delete User Endpoint: Marks a user as deleted, implementing the soft delete mechanism to retain information.
+The UserController provides endpoints for managing users. It handles HTTP requests and offers documentation through Swagger, simplifying user interaction with the system.
 
+- Create User Endpoint: Allows for the creation of a new user. It verifies that the user has reached the age of majority before creation.
+- Update Any User Fields Endpoint: Enables the updating of specific fields of an existing user without creating a new user.
+- Update All User Fields Endpoint: Updates all information about a user and creates a new record if the user does not exist.
+- Find Users by Birth Date Range Endpoint: Retrieves a list of users whose birth dates fall within a specified range, provided in the YYYY-MM-DD format.
+- Delete User Endpoint: Marks a user as deleted, implementing the soft delete mechanism to retain information.
 
 ### Technical Stack and Tools
 
@@ -20,20 +19,20 @@ Provides endpoints for maneging  users. It handles HTTP requests and provides do
 
 - **Programming Language and Frameworks**: The project is written in Java and utilizes the Spring Boot framework. This technology stack is chosen to ensure high performance and scalability of the web application.
 
-- **Database Management**: MySQL is used as the database with the capability of extending to other SQL databases. Our database stores a vast amount of information about books and orders.
+- **Database Management**: MySQL is used as the database with the capability of extending to other SQL databases. Our database stores information about users.
 
-- **Libraries and Technologies**: The project utilizes libraries such as MapStruct and Lombok, along with the Liquibase technology for convenient and rapid data development and management.
+- **Libraries and Technologies**: The project uses libraries such as MapStruct and Lombok, along with Liquibase technology for convenient and rapid database schema management.
 
 ## Usage
 
 To get started with the "User Management Web Application" you need to follow a few simple steps.
 
-1. **Clone the project**: Clone the repository and navigate to the project folder: `git clone https://github.com/IhorKalaur/Demo.git` and `cd bookstore`.
+1. **Clone the project**: Clone the repository and navigate to the project folder: `git clone https://github.com/IhorKalaur/Users.git` and `cd users`.
 2. **Configure the database**: Set the necessary configuration for connecting to your database in the application.properties file. You must set your own "datasource.url", "datasource.username" and "datasource.password"
 3. **Install Maven**: Run the command for building and configuring the project: `mvn clean install`.
 4. **Run the project**: Start the application using Maven: `mvn spring-boot:run`.
 5. **URL**: After these steps, the API will be accessible at [URL](http://localhost:8080/api).
-8. **Swagger**: You can check the API documentation using Swagger. It provides a simple and intuitive interface for verifying API functions: [Swagger](http://localhost:8080/api/swagger-ui/index.html).
+8. **Swagger**: You can check the API documentation using Swagger, which provides a simple and intuitive interface to verify API functions at [Swagger UI](http://localhost:8080/api/swagger-ui/index.html).
 
 ## Community Contribution
 
