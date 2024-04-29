@@ -5,13 +5,31 @@ Welcome! We invite you to familiarize yourself with our service that facilitates
 
 ### UserController
 
-The UserController provides endpoints for managing users. It handles HTTP requests and offers documentation through Swagger, simplifying user interaction with the system.
 
-- Create User Endpoint: Allows for the creation of a new user. It verifies that the user has reached the age of majority before creation.
-- Update Any User Fields Endpoint: Enables the updating of specific fields of an existing user without creating a new user.
-- Update All User Fields Endpoint: Updates all information about a user and creates a new record if the user does not exist.
-- Find Users by Birth Date Range Endpoint: Retrieves a list of users whose birth dates fall within a specified range, provided in the YYYY-MM-DD format.
-- Delete User Endpoint: Marks a user as deleted, implementing the soft delete mechanism to retain information.
+The UserController in the provided Java Spring Boot application handles various CRUD (Create, Read, Update, Delete) operations related to user management. Below, I'll expand on each method within the controller, providing more details about their functionality, use, and design rationale. The UserController is annotated with @RestController, which marks the class as a controller where every method returns a domain object instead of a view. It's designed to handle HTTP requests related to user operations.
+
+## Endpoints and Their Functionalities
+
+1) Create a new user:
+   - Endpoint: POST /users
+   - Description: This endpoint is responsible for creating a new user. The user must meet certain criteria specified in the application, such as being of legal age. It accepts user data packaged as a CreateUserRequestDto object, validates it, and processes it through the UserService.
+   - Validation: The request body is validated for constraints defined in CreateUserRequestDto.
+2) Update specific fields of an existing user:
+   - Endpoint: PATCH /users/{id}
+   - Description: This endpoint allows the partial update of an existing user's data. It is not used for creating new users but rather modifying attributes of an already existing user based on the user ID provided in the path.
+   - Dynamic Update: The endpoint dynamically updates fields provided in the request without requiring a full replacement of the user object.
+3) Update all fields of an existing user:
+   - Endpoint: PUT /users/{id}
+   - Description: Unlike the PATCH method, this PUT endpoint expects a full user detail modification and will replace all fields of the user object. If the user does not exist, depending on the implementation, it might create a new user.
+   - Idempotency: Typically, PUT operations are idempotent, meaning multiple identical requests should have the same effect as a single request.
+4) Search for users by birth date range:
+   - Endpoint: GET /users/search
+   - Description: This endpoint retrieves all users whose birthdates fall within a specified range. The date range is provided as query parameters and processed to filter users.
+   - Flexibility: Useful for generating reports or for UI components where users need to find records between specific dates.
+5) Delete a user by ID:
+   - Endpoint: DELETE /users/{id}
+   - Description: Responsible for deleting a user by their unique identifier. This often implements a soft delete mechanism, marking the user as deleted in the database instead of removing the record entirely.
+   - Data Integrity: Soft deletes help in maintaining data integrity and allow recovery of deleted records if needed.
 
 ### Technical Stack and Tools
 
